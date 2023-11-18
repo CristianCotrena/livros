@@ -8,4 +8,6 @@ public interface BookRepository extends ReactiveMongoRepository<Book,String> {
 
     Mono<Book> findByIsbn(String isbn);
 
+    Mono<Book> findById(String id);
+
 }
