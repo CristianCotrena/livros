@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "f7036a1b-ad65-4c3c-9724-8a112f1366a1",
+		"name": "Lista de Livros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18793992",
+		"_collection_link": "https://martian-astronaut-744258.postman.co/workspace/NTConsult~7475cf8a-732e-4b57-894e-cdb19065b26d/collection/18793992-f7036a1b-ad65-4c3c-9724-8a112f1366a1?action=share&source=collection_link&creator=18793992"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Crepusculo\",\r\n    \"genre\": \"Romance\",\r\n    \"year\": \"2000\",\r\n    \"edition\": \"8\",\r\n    \"pageNumber\": \"500\",\r\n    \"author\": \"Adrielly\",\r\n    \"publisher\": \"teste\", \r\n    \"isbn\":\"a2\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/books/6558fe0e50ce0b2a2fa11d4d",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"6558fe0e50ce0b2a2fa11d4d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"novoTitulo\",\r\n    \"year\": 2020\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/books/655b6d888f1655399ecbe018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"655b6d888f1655399ecbe018"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListByYearAndGenre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/books/list?year=&genre=suspense",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"list"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": ""
+						},
+						{
+							"key": "genre",
+							"value": "suspense"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
