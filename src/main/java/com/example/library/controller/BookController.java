@@ -3,6 +3,7 @@ package com.example.library.controller;
 import com.example.library.domain.Book;
 import com.example.library.dto.CreateBookDto;
 import com.example.library.service.bookService.CreateBookService;
+import com.example.library.service.bookService.UpdateBookService;
 import com.example.library.service.bookService.ListBookService;
 import com.example.library.service.bookService.SearchBookService;
 import com.example.library.service.bookService.ListByIdBookService;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class BookController {
     private CreateBookService createBookService;
+    private UpdateBookService updateBookService;
     private SearchBookService searchBookService;
     private ListBookService listBookService;
     private ListByIdBookService listByIdBookService;
@@ -26,6 +28,11 @@ public class BookController {
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<Object> save(@Valid @RequestBody CreateBookDto bookDto) {
         return createBookService.save(bookDto);
+    }
+
+    @PatchMapping("/{id}")
+    public Mono<Book> update(@PathVariable String id, @RequestBody Book book) {
+        return updateBookService.update(id, book);
     }
 
     @GetMapping("/{id}")
@@ -44,6 +51,4 @@ public class BookController {
 
         return listByIdBookService.ListBookYearAndGenre(year,genre);
     }
-
-
 }

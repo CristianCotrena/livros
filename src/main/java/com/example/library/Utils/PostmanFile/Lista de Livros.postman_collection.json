@@ -20,7 +20,16 @@
 						}
 					}
 				},
-				"url": "localhost:8080/books"
+				"url": {
+					"raw": "localhost:8080/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books"
+					]
+				}
 			},
 			"response": []
 		},
@@ -29,7 +38,17 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/books/6558fe0e50ce0b2a2fa11d4d"
+				"url": {
+					"raw": "localhost:8080/books/6558fe0e50ce0b2a2fa11d4d",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"6558fe0e50ce0b2a2fa11d4d"
+					]
+				}
 			},
 			"response": []
 		},
@@ -37,7 +56,39 @@
 			"name": "List",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"novoTitulo\",\r\n    \"year\": 2020\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/books/655b6d888f1655399ecbe018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"655b6d888f1655399ecbe018"
+					]
+				}
 			},
 			"response": []
 		},
