@@ -2,11 +2,7 @@ package com.example.library.controller;
 
 import com.example.library.domain.Book;
 import com.example.library.dto.CreateBookDto;
-import com.example.library.service.bookService.CreateBookService;
-import com.example.library.service.bookService.UpdateBookService;
-import com.example.library.service.bookService.ListBookService;
-import com.example.library.service.bookService.SearchBookService;
-import com.example.library.service.bookService.ListByIdBookService;
+import com.example.library.service.bookService.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,6 +19,8 @@ public class BookController {
     private SearchBookService searchBookService;
     private ListBookService listBookService;
     private ListByIdBookService listByIdBookService;
+
+    private DeleteBookService deleteBookService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -50,5 +48,11 @@ public class BookController {
             @RequestParam(required = false)String genre){
 
         return listByIdBookService.ListBookYearAndGenre(year,genre);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Mono<Void> deletar(@PathVariable String id) {
+        return deleteBookService.deleteById(id);
     }
 }
