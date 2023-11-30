@@ -15,11 +15,11 @@ public class DeleteBookService {
     private BookRepository bookRepository;
 
     public Mono<Void> deleteById(String id) {
-        return bookRepository.existsById(id).flatMap(existingBook -> {
-            if (!existingBook) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado.");
-            }
-            return bookRepository.deleteById(id);
-        });
+        return bookRepository.existsById(id)
+                .flatMap(existingBook ->
+                        existingBook
+                                ? bookRepository.deleteById(id)
+                                : Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado."))
+                );
     }
 }
