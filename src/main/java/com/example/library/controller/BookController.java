@@ -55,4 +55,9 @@ public class BookController {
     public Mono<Void> deletar(@PathVariable String id) {
         return deleteBookService.deleteById(id);
     }
+
+    @PutMapping("/{id}")
+    public Mono<Book> updateAll(@PathVariable String id, @RequestBody Book book) {
+        return updateBookService.update(id, book);
+    }
 }
